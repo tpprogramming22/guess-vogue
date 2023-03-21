@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from "react"
+import { Slider } from '@mui/material';
 
 function App() {
 
@@ -20,6 +21,17 @@ function App() {
       <p>Can you guess what year this issue was published?</p>
       <div className="image-container">
       <img src={process.env[selection]}/>
+      </div>
+      <div>
+      <Slider
+  aria-label="Small steps"
+  defaultValue={0.00000005}
+  step={0.00000001}
+  marks
+  min={-0.00000005}
+  max={0.0000001}
+  valueLabelDisplay="auto"
+/>
       </div>
       
     </div>
