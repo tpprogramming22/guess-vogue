@@ -25,11 +25,11 @@ function App() {
       <div>
       <Slider
   aria-label="Small steps"
-  defaultValue={0.00000005}
-  step={0.00000001}
+  defaultValue={1983}
+  step={1}
   marks
-  min={-0.00000005}
-  max={0.0000001}
+  min={1945}
+  max={2023}
   valueLabelDisplay="auto"
 />
       </div>
