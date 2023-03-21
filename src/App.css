@@ -8,3 +8,17 @@ img {
   padding: 5px;
   width: 300px;
 }
+
+.guess-button {
+  text-align: center;
+  background-color: gray;
+  display: inline-block;
+  padding: 4px;
+  border-radius: 25px;
+  width: 200px;
+  color: white;
+}
+
+.guess-button:active {
+  background-color: white;
+}
