@@ -1,5 +1,6 @@
 .main-title {
   text-align: center;
+  user-select: none;
 }
 
 img {
@@ -7,6 +8,7 @@ img {
   border-radius: 4px;
   padding: 5px;
   width: 300px;
+  pointer-events: none
 }
 
 .guess-button {

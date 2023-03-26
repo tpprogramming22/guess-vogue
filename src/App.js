@@ -36,7 +36,7 @@ function App() {
       <img src={process.env[selection]}/>
       </div>
       <div>
-        <p>{value}</p>
+        <p className='no-pointer'>{value}</p>
         <div>
           <Slider
   aria-label="Small steps"
