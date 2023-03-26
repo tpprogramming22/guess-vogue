@@ -17,6 +17,7 @@ img {
   border-radius: 25px;
   width: 200px;
   color: white;
+  cursor: pointer;
 }
 
 .guess-button:active {

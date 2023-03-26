@@ -3,14 +3,14 @@ import './App.css';
 import React from "react"
 import { Slider } from '@mui/material';
 import { useState, useEffect, useRef } from 'react';
-
+import guessValue from './components/guessValue';
 
 function App() {
 
   const [value, setValue] = useState(1945)
-  const weird = useRef(Math.floor(Math.random() * (1942 - 1940 + 1)) + 1940)
-  const random = Math.floor(Math.random() * (1942 - 1940 + 1)) + 1940;
-  
+  const [solution, setSolution] = useState(null)
+
+  const weird = useRef(Math.floor(Math.random() * (1977 - 1977 + 1)) + 1977)
 
   console.log(weird)
 
@@ -44,13 +44,17 @@ function App() {
   getAriaValueText={setValue}
   step={1}
   marks
-  min={1945}
+  min={1939}
   max={2023}
   valueLabelDisplay="off"
 />
 </div>
-<div className='guess-button'>
-  <h2>GUESS</h2>
+<div >
+  <button className='guess-button' onClick={()=>{setSolution(guessValue(value, weird.current))}}>GUESS</button>
+  {solution == 0 &&
+  <h2>False!</h2>}
+  {solution == 1 &&
+  <h2>Correct!</h2>}
 </div>
       
       </div>
