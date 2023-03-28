@@ -25,10 +25,12 @@ const theme = createTheme({
 
 function App() {
 
+  const date = 2002
+
   const [value, setValue] = useState(1945)
   const [solution, setSolution] = useState(null)
 
-  const weird = useRef(Math.floor(Math.random() * (1977 - 1977 + 1)) + 1977)
+  const weird = useRef(Math.floor(Math.random() * (date - date + 1)) + date)
 
   console.log(weird)
 
