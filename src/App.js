@@ -4,6 +4,24 @@ import React from "react"
 import { Slider } from '@mui/material';
 import { useState, useEffect, useRef } from 'react';
 import guessValue from './components/guessValue';
+import { createTheme } from '@mui/material/styles';
+import { TiTick, TiTimes } from 'react-icons/ti'
+
+const theme = createTheme({
+  status: {
+    danger: '#e53e3e',
+  },
+  palette: {
+    primary: {
+      main: '#0971f1',
+      darker: '#053e85',
+    },
+    neutral: {
+      main: '#64748B',
+      contrastText: '#fff',
+    },
+  },
+});
 
 function App() {
 
@@ -16,9 +34,10 @@ function App() {
 
   
 
-  // useEffect(() => {
+  useEffect(() => {
+    setSolution(2)
     
-  // }, []);
+  }, [value]);
 
   const selection = "REACT_APP_" + weird.current
   
@@ -26,6 +45,7 @@ function App() {
   //slight difference bosh
 
   return (
+    <div>
     <div className="main-title">
       <h1>
         Guess The Vogue
@@ -35,11 +55,19 @@ function App() {
       <div className="image-container">
       <img src={process.env[selection]}/>
       </div>
+      {solution == 0 &&
+      <div className='center'>
+  <TiTimes className='absolute-header'/> </div>
+  }
+  
+  {solution == 1 &&
+  <div className='center'>
+  <TiTick className='absolute-header'/> </div>}
       <div>
         <p className='no-pointer'>{value}</p>
         <div>
+        
           <Slider
-  aria-label="Small steps"
   defaultValue={1983}
   getAriaValueText={setValue}
   step={1}
@@ -47,18 +75,19 @@ function App() {
   min={1939}
   max={2023}
   valueLabelDisplay="off"
+  color="primary"
 />
 </div>
 <div >
-  <button className='guess-button' onClick={()=>{setSolution(guessValue(value, weird.current))}}>GUESS</button>
-  {solution == 0 &&
-  <h2>False!</h2>}
-  {solution == 1 &&
-  <h2>Correct!</h2>}
+  <div className='guess-button' onClick={()=>{setSolution(guessValue(value, weird.current))}}>
+    <h2>GUESS</h2>
+  </div>
+  
 </div>
       
       </div>
       
+    </div>
     </div>
   );
 }
